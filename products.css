@@ -1,0 +1,177 @@
+
+ /* Basic styles for the header */
+ .header {
+    position: relative;
+    width: 100%;
+    height: 300px; /* يمكنك تعديل الارتفاع حسب الحاجة */
+    text-align: center;
+}
+
+.header img {
+    width: 100%;  /* لجعل الصورة تمتد عبر العرض الكامل */
+    height: 100%; /* لجعل الصورة تغطي المساحة العمودية بالكامل */
+    object-fit: cover; /* لضمان تغطية المساحة بالكامل مع الحفاظ على نسبة الأبعاد */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* لوضع الروابط في المنتصف */
+    background-color: rgba(44, 62, 80, 0.8); /* لون خلفية شبه شفاف */
+    padding: 15px 0; /* زيادة المسافة في الشريط */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px; /* زيادة الفجوة بين الروابط */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    background-color: #34495e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+    background-color: #1abc9c;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.navbar-links a:active {
+    transform: scale(1.05);
+}
+
+.container {
+    margin: 20px;
+    max-width: 100%;
+    width: 100%;
+    background-color: rgba(227, 237, 245, 0.8); /* لون خلفية شبه شفاف */
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(227, 237, 245, 0.8); /* لون خلفية شبه شفاف */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    background-color: rgba(227, 237, 245, 0.8); /* لون خلفية شبه شفاف */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(227, 237, 245, 0.8); /* لون خلفية شبه شفاف */
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+form {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+input, select, button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+h2 {
+    text-align: center;
+    color: #050505;
+}
+
+
+button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#product-list th, #product-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+#statsTable {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#statsTable th, #statsTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#statsTable th {
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#statsTable td:first-child {
+    text-align: center; /* عناوين الإحصائيات */
+}
+
+#statsTable td:last-child {
+    text-align: center; /* القيم */
+}
+#productChart {
+    display: block;
+    margin: 40px auto;
+    max-width: 600px;
+    max-height: 400px;
+}
+#profitChart{
+    display: block;
+    margin: 40px auto;
+    max-width: 600px;
+    max-height: 400px;
+}
+#charts-container {
+    display: flex;
+    justify-content: space-between;  /* توزيع العناصر بين اليسار واليمين */
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+}
