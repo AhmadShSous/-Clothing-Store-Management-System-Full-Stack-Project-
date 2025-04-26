@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- خلفية مع صورة ملابس -->
+    <div class="background-image">
+        <div class="content-container">
+            <!-- قائمة رئيسية للتنقل بين الواجهات (عمودية) -->
+            <div class="main-menu">
+                <button onclick="showSection('managerSection')">Manager</button>
+                <button onclick="showSection('productsSection')">Products</button>
+                <button onclick="showSection('employeesSection')">Employees</button>
+                <button onclick="showSection('ordersSection')">Orders</button>
+            </div>
+
+            <!-- قسم Manager -->
+            <div id="managerSection" class="section hidden">
+                <h2>Manager Management</h2>
+                <button onclick="showManagerForm('addForm')">Add Manager</button>
+                <button onclick="showManagerForm('updateForm')">Update Manager</button>
+                <button onclick="showManagerForm('deleteForm')">Delete Manager</button>
+                <button onclick="showManagerForm('viewForm')">View Managers</button>
+
+                <div id="addForm" class="form hidden">
+                    <h3>Add Manager</h3>
+                    <form action="process.php" method="POST">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="address" placeholder="Address" required>
+                        <input type="text" name="phone" placeholder="Phone" required>
+                        <input type="text" name="salary" placeholder="Salary" required>
+                        <input type="number" name="age" placeholder="Age" required>
+                        <button type="submit" name="action" value="add">Add Manager</button>
+                    </form>
+                </div>
+
+                <div id="updateForm" class="form hidden">
+                    <h3>Update Manager</h3>
+                    <!-- Update form fields -->
+                </div>
+
+                <div id="deleteForm" class="form hidden">
+                    <h3>Delete Manager</h3>
+                    <!-- Delete form fields -->
+                </div>
+
+                <div id="viewForm" class="form hidden">
+                    <h3>View Managers</h3>
+                    <!-- View managers content -->
+                </div>
+            </div>
+
+            <!-- قسم Products -->
+            <div id="productsSection" class="section hidden">
+                <h2>Product Management</h2>
+                <p>Manage your products here.</p>
+            </div>
+
+            <!-- قسم Employees -->
+            <div id="employeesSection" class="section hidden">
+                <h2>Employee Management</h2>
+                <p>Manage your employees here.</p>
+            </div>
+
+            <!-- قسم Orders -->
+            <div id="ordersSection" class="section hidden">
+                <h2>Order Management</h2>
+                <p>Manage your orders here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

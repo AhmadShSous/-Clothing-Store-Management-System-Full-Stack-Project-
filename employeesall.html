@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="employees.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="projectBase/project.jpg" alt="Logo">
+        <div class="navbar">
+            <div class="navbar-links">
+                <a href="http://localhost/index.html">Manager Management</a>
+                <a href="http://localhost/employeesAll.html">Employees Management</a>
+                <a href="http://localhost/import_products.php">Product Management</a>
+                <a href="http://localhost/orders.html">All Orders</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Employee Management</h1>
+
+        <!-- Employee Table -->
+        <div class="table-container">
+            <h2>Employees</h2>
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Hire Date</th>
+                        <th>Phone</th>
+                        <th>Manager ID</th>
+                        <th>Manager Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be dynamically fetched -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="buttons">
+            <button onclick="showForm('addForm')">Add Employee</button>
+            <button onclick="showForm('deleteForm')">Delete Employee</button>
+            <button onclick="showForm('updateForm')">Update Employee</button>
+        </div>
+
+        <!-- Add Employee Form -->
+        <div id="addForm" class="form hidden">
+            <h2>Add Employee</h2>
+            <form action="employees.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="add_Gender">Gender:</label>
+                <select id="Gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>    
+
+                <label for="hire_date">Hire Date:</label>
+                <input type="date" id="hire_date" name="hire_date" required>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="add_email">Email:</label>
+                <input type="email" id="add_email" name="Email" required>
+
+                <label for="add_password">password:</label>
+                <input type="Password" id="add_password" name="password_cus" required>
+
+
+                <select id="manager_id" name="manager_id" required>
+                    <option value="" disabled selected>Select Manager</option>
+                </select>
+                
+                <script>
+                    // Fetch active managers dynamically from employees.php
+                    fetch('employees.php?action=get_active_managers')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('manager_id').innerHTML += data;
+                        })
+                        .catch(error => console.error('Error fetching managers:', error));
+                </script>
+
+                <!-- Select Job Type -->
+                <label for="job_type">Job Type:</label>
+                <select id="job_type" name="job_type" onchange="toggleJobFields()" required>
+                    <option value="" disabled selected>Select Job Type</option>
+                    <option value="full_time">Full-Time</option>
+                    <option value="part_time">Part-Time</option>
+                </select>
+
+                <!-- Full-Time Fields -->
+                <div id="full_time_fields" class="hidden">
+                    <label for="salary">Salary:</label>
+                    <input type="number" id="salary" name="salary">
+                </div>
+
+                <!-- Part-Time Fields -->
+                <div id="part_time_fields" class="hidden">
+                    <label for="hour_rate">Hourly Rate:</label>
+                    <input type="number" id="hour_rate" name="hour_rate">
+                    <label for="price_hour">Price per Hour:</label>
+                    <input type="number" id="price_hour" name="price_hour">
+                </div>
+
+                <button type="submit" name="action" value="add">Add Employee</button>
+            </form>
+        </div>
+
+        <!-- Delete Employee Form -->
+        <div id="deleteForm" class="form hidden">
+            <h2>Delete Employee</h2>
+            <form action="employees.php" method="POST">
+                <label for="delete_id">Employee ID:</label>
+                <input type="number" id="delete_id" name="id" required>
+                <button type="submit" name="action" value="delete">Delete Employee</button>
+            </form>
+        </div>
+
+        <!-- Update Employee Form -->
+        <div id="updateForm" class="form hidden">
+            <h2>Update Employee</h2>
+            <form action="employees.php" method="POST">
+                <label for="employee_id">Employee ID:</label>
+                <input type="number" id="E_ID" name="E_ID1" required>
+
+                <label for="update_Gender">Gender:</label>
+                <select id="Gender" name="gender1" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="">No change</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            
+
+                <label for="update_hire_date">Hire Date:</label>
+                <input type="date" id="HireDate" name="HireDate1" required>
+
+                <label for="update_name">Name:</label>
+                <input type="text" id="Name_Emp" name="Name_Emp1" required>
+
+                <label for="update_phone">Phone:</label>
+                <input type="text" id="phone" name="phone1" required>
+
+                <label for="update_email">Email:</label>
+                <input type="email" id="update_email" name="Email1">
+
+                <label for="update_password">password:</label>
+                <input type="password" id="update_password" name="password_cus1" required>
+
+                <label for="update_manager_id">Manager:</label>
+                <select id="update_manager_id" name="ID_Manager1" required>
+                    <option value="" disabled selected>Select Manager</option>
+                </select>
+
+                <label for="job_type">Job Type:</label>
+                <select id="jobtype" name="jobtype1">
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                </select>
+                
+                <div id="fullTimeFields" style="display:none;">
+                    <label for="salary">Salary:</label>
+                    <input type="text" id="salary" name="salary1">
+                </div>
+                
+                <div id="partTimeFields" style="display:none;">
+                    <label for="Hour_rate">Hour Rate:</label>
+                    <input type="text" id="Hour_rate" name="Hour_rate1">
+                    <label for="price_hour">Price per Hour:</label>
+                    <input type="text" id="price_hour" name="price_hour1">
+                </div>
+                
+                <script>
+                    document.getElementById("jobtype").addEventListener("change", function() {
+                        let jobType = this.value;
+                        if (jobType == "Full-time") {
+                            document.getElementById("fullTimeFields").style.display = "block";
+                            document.getElementById("partTimeFields").style.display = "none";
+                        } else if (jobType == "Part-time") {
+                            document.getElementById("fullTimeFields").style.display = "none";
+                            document.getElementById("partTimeFields").style.display = "block";
+                        }
+                    });
+                </script>
+
+
+                <button type="submit" name="action" value="update">Update Employee</button>
+            </form>
+        </div>
+
+        <!-- Query Results -->
+        <h2>Query Results</h2>
+        <button onclick="fetchQuery('selectAll')">Show All Employees</button>
+        <button onclick="fetchQuery('full_time')">Show Full-Time Employees</button>
+        <button onclick="fetchQuery('part_time')">Show Part-Time Employees</button>
+        <div id="queryContent"></div>
+
+        <!-- Search Form -->
+        <h2>Search Employee</h2>
+        <form id="searchForm" action="employees.php" method="GET" onsubmit="event.preventDefault(); searchEmployee();">
+            <label for="employee_name">Enter Employee Name:</label>
+            <input type="text" id="employee_name" name="employee_name" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+        <div id="states-form" style="display: none;">
+            <h1>Product Statistics</h1>
+            <table id="statsTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Statistic</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="charts-container" style="display: flex; justify-content: space-between; width: 100%; padding: 10px;">
+                <canvas id="productChart" style="width: 48%; height: 300px;"></canvas> <!--هون للرواتب-->
+                <canvas id="profitChart" style="width: 48%; height: 300px;"></canvas> <!--هون gender-->>
+            </div>
+        </div>
+        <button onclick="toggleShowStatesForm()" style="display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px;">Show States</button>
+
+
+    </div>  
+
+    <script src="employees.js"></script>
+</body>
+</html>

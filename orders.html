@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+    <div class="header">
+        <img src="projectBase/project.jpg" alt="Logo">
+        <div class="navbar">
+            <div class="navbar-links">
+                <a href="http://localhost/index.html">Manager Management</a>
+                <a href="http://localhost/employeesAll.html">Employees Management</a>
+                <a href="http://localhost/import_products.php">Product Management</a>
+                <a href="http://localhost/orders.html">All Orders</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Orders Management</h1>
+
+        <!-- زر لعرض جميع الطلبيات -->
+        <button id="show-orders-btn">Show All Orders</button>
+
+        <!-- جدول عرض الطلبيات -->
+        <div id="orders-list">
+            <!-- البيانات ستُملأ ديناميكياً عبر PHP -->
+        </div>
+
+        <!-- قسم الاستعلام -->
+        <div class="query-section">
+            <h2>Query Orders</h2>
+            <form id="query-form">
+                <label for="order-date">Enter Order Date:</label>
+                <input type="date" id="order-date" name="order_date" required>
+                <button type="submit">Query Total Price</button>
+            </form>
+            <div id="query-result">
+                <!-- النتيجة ستظهر هنا -->
+            </div>
+        </div>
+        <!-- قسم الإحصائيات -->
+       <!-- قسم الإحصائيات -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+
+        <!-- جدول عرض الإحصائيات -->
+        <div class="stats-section">
+            <h2 style="text-align: center;">Statistics</h2>
+            <table >
+                <thead>
+                    <tr>
+                        <th>Statistic</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="stats-table">
+                    <!-- البيانات سيتم إدخالها هنا بواسطة JavaScript -->
+                </tbody>
+            </table>
+
+            <div id="charts-container" style="display: flex; justify-content: space-between; width: 100%; padding: 10px;">
+                <canvas id="productChart" style="width: 48%; height: 300px;"></canvas> <!--quantity of producet sales -->
+                <canvas id="profitChart" style="width: 48%; height: 300px;"></canvas>  <!--sales in date for all sales -->
+            </div>
+            <button onclick="loadOrderStatistics()">Show Statistics</button>
+
+        </div>
+        <!-- زر عرض الإحصائيات -->
+
+    </div>
+    <script src="orders.js"></script>
+</body>
+</html>
