@@ -1,0 +1,230 @@
+
+ /* Basic styles for the header */
+ .header {
+    position: relative;
+    width: 100%;
+    height: 300px; /* يمكنك تعديل الارتفاع حسب الحاجة */
+    text-align: center;
+}
+
+.header img {
+    width: 100%;  /* لجعل الصورة تمتد عبر العرض الكامل */
+    height: 100%; /* لجعل الصورة تغطي المساحة العمودية بالكامل */
+    object-fit: cover; /* لضمان تغطية المساحة بالكامل مع الحفاظ على نسبة الأبعاد */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* لوضع الروابط في المنتصف */
+    background-color: rgba(44, 62, 80, 0.8); /* لون خلفية شبه شفاف */
+    padding: 15px 0; /* زيادة المسافة في الشريط */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px; /* زيادة الفجوة بين الروابط */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    background-color: #34495e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+    background-color: #1abc9c;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.navbar-links a:active {
+    transform: scale(1.05);
+}
+
+.container {
+    margin: 20px;
+    max-width: 100%;
+    width: 100%;
+    background-color: rgba(44, 62, 80, 0.8); /* لون خلفية شبه شفاف */
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(227, 237, 245, 0.8); /* لون خلفية شبه شفاف */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    background-color: rgba(227, 237, 245, 0.8); /* لون خلفية شبه شفاف */
+    padding: 20px;
+    border-radius: 10px;
+    /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+    box-sizing: border-box;
+}
+
+/* تحسين عرض العناوين */
+h1 {
+    text-align: center;
+    color: #0b0b0b;
+    margin-bottom: 20px;
+}
+
+/* تنسيق الجدول */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* تحسين التنسيق لأزرار الوظائف */
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* إخفاء النماذج */
+.hidden {
+    display: none;
+}
+
+/* تنسيق استجابة النماذج */
+.query-results {
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* تنسيق النماذج */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* تعديل الاستجابة للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    button {
+        width: 100%;
+        font-size: 14px;
+    }
+    
+    form input {
+        width: 100%;
+    }
+    
+    table th, table td {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+
+
+#statsTable {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#statsTable th, #statsTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#statsTable th {
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#statsTable td:first-child {
+    text-align: center; /* عناوين الإحصائيات */
+}
+
+#statsTable td:last-child {
+    text-align: center; /* القيم */
+}
+#productChart {
+    display: block;
+    margin: 40px auto;
+    max-width: 600px;
+    max-height: 400px;
+}
+#profitChart{
+    display: block;
+    margin: 40px auto;
+    max-width: 600px;
+    max-height: 400px;
+}
+#charts-container {
+    display: flex;
+    justify-content: space-between;  /* توزيع العناصر بين اليسار واليمين */
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+}
