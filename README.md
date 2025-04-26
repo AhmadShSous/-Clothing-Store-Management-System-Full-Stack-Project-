@@ -57,6 +57,24 @@ Developed collaboratively by a team of three members.
 
 ---
 
+
+# Database Schema for Clothing Store Management System
+
+This folder contains the SQL script needed to set up the database for the Clothing Store Management System project.
+
+## Contents
+- **ClothingStoreDB.sql**: SQL script to create the database schema, tables, and relationships.
+
+## Instructions
+1. Open your MySQL server (e.g., using XAMPP, WAMP, phpMyAdmin).
+2. Run the script `ClothingStoreDB.sql` to create the `GH` database and all required tables.
+3. The database includes tables for Managers, Employees, Products, Orders, Customers, Suppliers, and associated relationships.
+
+## Important Notes
+- Ensure that your MySQL server is running.
+- This script will **DROP** and **CREATE** the `GH` database, so use it carefully if you already have a database with the same name.
+
+
 ## How to Run the Project
 1. Install **XAMPP** or **WAMP** server.
 2. Clone or download the repository into the `htdocs` directory.
